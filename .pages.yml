@@ -1,0 +1,59 @@
+media:
+  input: static/img
+  output: /img
+  extensions: [png, jpg, jpeg, gif, webp, svg]
+
+content:
+  - name: he-docs
+    label: Hebrew Pages (עברית)
+    type: collection
+    path: he
+    subfolders: true
+    view:
+      fields: [sidebar_label, sidebar_position, draft]
+      sort: sidebar_position
+      order: asc
+    fields:
+      - name: sidebar_label
+        label: Sidebar Title (כותרת בתפריט)
+        type: string
+      - name: sidebar_position
+        label: Order (מיקום בתפריט)
+        type: number
+      - name: draft
+        label: Hidden / Draft (הסתר מהאתר)
+        type: boolean
+        default: false
+      - name: slug
+        label: Custom URL Slug (אופציונלי)
+        type: string
+      - name: body
+        label: Content (תוכן)
+        type: rich-text
+
+  - name: en-docs
+    label: English Pages
+    type: collection
+    path: i18n/en/docusaurus-plugin-content-docs/current
+    subfolders: true
+    view:
+      fields: [sidebar_label, sidebar_position, draft]
+      sort: sidebar_position
+      order: asc
+    fields:
+      - name: sidebar_label
+        label: Sidebar Title
+        type: string
+      - name: sidebar_position
+        label: Order
+        type: number
+      - name: draft
+        label: Hidden / Draft
+        type: boolean
+        default: false
+      - name: slug
+        label: Custom URL Slug (optional)
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
