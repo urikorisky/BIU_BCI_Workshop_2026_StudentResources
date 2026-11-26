@@ -2,10 +2,27 @@ $schema: https://api.gitbook.com/gitbook-docs.yaml
 site:
   title: BCI Workshop 2026
   structure:
-    - type: space
-      key: space-workshop
-      title: Course Guide
-      path: workshop
+    - type: section
+      key: section-he
+      title: עברית (Hebrew)
+      path: he
       default: true
-      content:
-        directory: ./
+      variants:
+        - type: space
+          key: space-he
+          title: עברית
+          path: he
+          default: true
+          content:
+            directory: ./he
+    - type: section
+      key: section-en
+      title: English
+      path: en
+      variants:
+        - type: space
+          key: space-en
+          title: English
+          path: en
+          content:
+            directory: ./en

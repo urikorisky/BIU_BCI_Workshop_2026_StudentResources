@@ -18,7 +18,7 @@ In this lab, we explore the **SG90 Micro Servo Motor** and understand how microc
 
 ## 📜 Available Scripts
 
-All scripts are located in the [`Scripts/`](../Scripts/) directory:
+All scripts are located in the [`Scripts/`](../../Scripts/) directory:
 
 ### 1. Manual PWM Demo (`Servo_Manual_PWM_Demo.ino`)
 * **Location**: `Scripts/Servo_Manual_PWM_Demo/Servo_Manual_PWM_Demo.ino`

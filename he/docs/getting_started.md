@@ -1,3 +1,5 @@
+<div dir="rtl" style="text-align: right;">
+
 # התקנה והכנה לסדנה (Getting Started)
 
 ברוכים הבאים לסדנת ממשקי מוח-מכונה (**BCI Workshop 2026**)!  
@@ -57,13 +59,4 @@
 3. **קבצי התרגול של הסדנה**:
    - הורידו ישירות כ-ZIP ממאגר GitHub: **[הורדת כל קבצי הסדנה (ZIP)](https://github.com/urikorisky/BIU_BCI_Workshop_2026_StudentResources/archive/refs/heads/main.zip)**
 
----
-
-## English Quick Guide
-
-1. Download the latest **BCI Workshop Hub** installer for Windows (`.exe`) or macOS (`.dmg`) from **[GitHub Releases](https://github.com/urikorisky/BCI_Workshop_2026_Hub/releases/latest)**.
-2. **First-launch security prompt**:
-   - **Windows**: Click *More info → Run anyway* on SmartScreen.
-   - **macOS**: Drag into *Applications*, try opening once, then go to *System Settings → Privacy & Security → Open Anyway*.
-3. Sign in with Google, review the pre-scan, install the optional workshop tools (recommended for Day 1: Workshop Python, JupyterLab, Arduino IDE, and CH340/FTDI drivers), run **System Verification**, and click **Send Diagnostic Report to Instructor** before Sunday 09:00.
-4. **Day 1 Manual Fallback** (if needed): Use the direct Arduino IDE, CH340 driver, and StudentResources ZIP links above.
+</div>
