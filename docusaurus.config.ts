@@ -17,6 +17,14 @@ const config: Config = {
     },
   },
 
+  scripts: [
+    {
+      src: 'https://static.cloudflareinsights.com/beacon.min.js',
+      type: 'module',
+      'data-cf-beacon': '{"token": "1c076369a7434d67ad3c2f8850bd92d6"}',
+    },
+  ],
+
   i18n: {
     defaultLocale: 'he',
     locales: ['he', 'en'],
