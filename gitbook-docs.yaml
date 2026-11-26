@@ -1,0 +1,11 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: BCI Workshop 2026
+  structure:
+    - type: space
+      key: space-workshop
+      title: Course Guide
+      path: workshop
+      default: true
+      content:
+        directory: ./
