@@ -4,6 +4,9 @@ Welcome to the student knowledge base and code repository for the **BCI Workshop
 
 This repository contains all student-facing materials: lecture guides, circuit diagrams, starter code, and hands-on exercises covering the entire arc from basic electricity and microcontrollers to biopotentials, signal filtering, and brain-computer interfacing.
 
+> 🚀 **הכנה לסדנה / Getting Started (חובה לפני יום ראשון 09:00):**  
+> עברו לעמוד **[התקנה והכנה לסדנה (Getting Started)](docs/getting_started.md)** להורדת **BCI Workshop Hub** (ל-Windows ו-Mac), הוראות אישור ראשוני, ובדיקת המחשב מראש.
+
 ---
 
 ## 🧭 How to Use This Knowledge Base
