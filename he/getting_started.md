@@ -14,11 +14,7 @@ draft: false
 
 אפליקציית **BCI Workshop Hub** היא תוכנת פתיחה בעברית (עם אפשרות לאנגלית) שתסרוק את המחשב שלכם, תציע התקנה מוסברת של התוכנות הדרושות (כולן אופציונליות), תבדוק שהכל עובד עוד **לפני חיבור חומרה**, ותשלח לאורי אישור שהמחשב מוכן.
 
-> 🔗 **עמוד ההורדה הרשמי (גרסה אחרונה):**  
-> **[הורידו את BCI Workshop Hub מ-GitHub Releases](https://github.com/urikorisky/BCI_Workshop_2026_Hub/releases/latest)**
-
-- **משתמשי Windows (64-bit):** הורידו והפעילו את קובץ ה-`.exe` (או `.msi`).
-- **משתמשי Mac (Apple Silicon M1–M4 / Intel):** הורידו ופתחו את קובץ ה-`.dmg`.
+[הורדת BCI Workshop Hub — גרסה אחרונה (מתעדכן אוטומטית)](https://github.com/urikorisky/BCI_Workshop_2026_Hub/releases/latest#hub-download-card)
 
 ---
 

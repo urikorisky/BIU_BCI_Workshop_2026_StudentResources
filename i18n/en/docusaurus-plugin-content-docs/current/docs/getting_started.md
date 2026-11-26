@@ -14,11 +14,7 @@ To avoid spending classroom time on installations, please complete the setup pro
 
 **BCI Workshop Hub** is a bilingual (Hebrew/English) onboarding app that scans your computer, offers guided optional installations for the workshop tools, verifies everything **before any hardware is connected**, and sends a readiness report to the instructor.
 
-> 🔗 **Official Download Page (Latest Release):**  
-> **[Download BCI Workshop Hub from GitHub Releases](https://github.com/urikorisky/BCI_Workshop_2026_Hub/releases/latest)**
-
-* **Windows (64-bit):** Download and run the `.exe` (or `.msi`) installer.
-* **macOS (Apple Silicon M1–M4 / Intel):** Download and open the `.dmg` file.
+[Download BCI Workshop Hub — Latest Release (Auto-Updated)](https://github.com/urikorisky/BCI_Workshop_2026_Hub/releases/latest#hub-download-card)
 
 ---
 
