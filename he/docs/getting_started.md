@@ -1,4 +1,7 @@
-<div dir="rtl" style="text-align: right;">
+---
+sidebar_position: 2
+sidebar_label: התקנה והכנה לסדנה
+---
 
 # התקנה והכנה לסדנה (Getting Started)
 
@@ -58,5 +61,3 @@
    - [הורדת דרייבר CH340 ל-Windows](https://www.wch-ic.com/downloads/CH341SER_EXE.html) | [הורדה ל-Mac](https://www.wch-ic.com/downloads/CH34XSER_MAC_ZIP.html)
 3. **קבצי התרגול של הסדנה**:
    - הורידו ישירות כ-ZIP ממאגר GitHub: **[הורדת כל קבצי הסדנה (ZIP)](https://github.com/urikorisky/BIU_BCI_Workshop_2026_StudentResources/archive/refs/heads/main.zip)**
-
-</div>

@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+sidebar_label: Getting Started
+---
+
 # Getting Started
 
 Welcome to the **BCI Workshop 2026**!  

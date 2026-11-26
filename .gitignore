@@ -19,5 +19,10 @@ build/
 *.hex
 *.elf
 
-# Local-only hidden drafts (kept on disk, excluded from GitHub & GitBook)
+# Local-only hidden drafts (kept on disk, excluded from GitHub & docs)
 _local_hidden/
+
+# Docusaurus
+node_modules/
+.docusaurus/
+.cache-loader/

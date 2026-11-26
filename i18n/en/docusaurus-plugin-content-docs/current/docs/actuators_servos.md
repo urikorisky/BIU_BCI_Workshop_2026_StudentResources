@@ -1,3 +1,8 @@
+---
+sidebar_position: 3
+sidebar_label: "Actuators: Servo & PWM Control"
+---
+
 # Actuators: Servo Motor & PWM Control
 
 In BCI and neuroengineering systems, actuators allow neural signals or software triggers to effect physical change in the real world (e.g., robotic prosthetics, feedback indicators, or mechanical switches).
@@ -18,16 +23,16 @@ In this lab, we explore the **SG90 Micro Servo Motor** and understand how microc
 
 ## 📜 Available Scripts
 
-All scripts are located in the [`Scripts/`](../../Scripts/) directory:
+All scripts are located in the **[`Scripts/`](https://github.com/urikorisky/BIU_BCI_Workshop_2026_StudentResources/tree/main/Scripts)** directory:
 
 ### 1. Manual PWM Demo (`Servo_Manual_PWM_Demo.ino`)
 * **Location**: `Scripts/Servo_Manual_PWM_Demo/Servo_Manual_PWM_Demo.ino`
 * **Concept**: Explains how hobby servos interpret a ~50 Hz PWM signal without using any external library:
   - Total frame period: **~20 ms** (50 Hz).
   - High pulse width encodes the target angle:
-    - **600 µs** $\rightarrow 0^\circ$ (approx. 3.0% duty cycle)
-    - **1500 µs** $\rightarrow 90^\circ$ (approx. 7.5% duty cycle)
-    - **2400 µs** $\rightarrow 180^\circ$ (approx. 12.0% duty cycle)
+    - **600 µs** → `0°` (approx. 3.0% duty cycle)
+    - **1500 µs** → `90°` (approx. 7.5% duty cycle)
+    - **2400 µs** → `180°` (approx. 12.0% duty cycle)
 * **What it does**: Sweeps the servo smoothly across its full range by manually pulsing Pin 3 HIGH and LOW with precise microsecond delays.
 
 ---
@@ -35,7 +40,7 @@ All scripts are located in the [`Scripts/`](../../Scripts/) directory:
 ### 2. Servo Library Sweep (`Servo_Using_Library_Demo.ino`)
 * **Location**: `Scripts/Servo_Using_Library_Demo/Servo_Using_Library_Demo.ino`
 * **Concept**: Shows how the standard Arduino `<Servo.h>` library abstracts timer interrupts and pulse generation.
-* **What it does**: Sweeps the servo angle from $0^\circ$ to $180^\circ$ and back continuously using simple `myServo.write(pos)` commands.
+* **What it does**: Sweeps the servo angle from `0°` to `180°` and back continuously using simple `myServo.write(pos)` commands.
 
 ---
 
