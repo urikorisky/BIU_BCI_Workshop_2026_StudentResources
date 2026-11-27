@@ -42,7 +42,7 @@ Plug the 3-lead cable into the 3.5 mm jack and attach the snap electrodes accord
 - 🟡 **Yellow (`RA`):** **Right Chest** — below the right collarbone (above the bra line).
 - 🟢 **Green (`RL` / Reference):** **Right Abdomen** — lower right ribcage / abdomen (below the bra band and above the waistband).
 
-![AD8232 ECG Electrode Placement (Male and Female, Front View)](/img/ad8232_electrode_placement.png)
+![AD8232 ECG Electrode Placement (Male and Female, Front View)](/img/ad8232_electrode_placement.svg)
 
 > **Orientation Note (`R` / `L` — Mirror Image):**  
 > The illustration shows a person **facing you**. The subject's **Right side (`R` — Yellow & Green)** appears on the **left** side of the image, and the subject's **Left side (`L` — Red)** appears on the **right** side of the image.  
