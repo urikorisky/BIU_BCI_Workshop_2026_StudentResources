@@ -310,3 +310,62 @@
   font-size: 0.86rem;
   color: var(--ifm-color-emphasis-800);
 }
+
+.resistor-legend-wrap {
+  margin: 1rem 0 1.5rem;
+  overflow-x: auto;
+  direction: ltr;
+  text-align: left;
+}
+
+.resistor-legend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.resistor-legend-table th,
+.resistor-legend-table td {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.resistor-legend-table th:first-child,
+.resistor-legend-table td.resistor-legend-color-cell {
+  text-align: left;
+}
+
+.resistor-example-card {
+  margin: 1rem 0 1.5rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  direction: ltr;
+  text-align: left;
+}
+
+.resistor-example-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.resistor-example-steps {
+  margin: 0.5rem 0 0.85rem;
+  padding-left: 1.35rem;
+}
+
+.resistor-example-steps li {
+  margin-bottom: 0.3rem;
+}
+
+.resistor-example-formula {
+  margin: 0.6rem 0;
+}
+
+.resistor-example-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-800);
+}

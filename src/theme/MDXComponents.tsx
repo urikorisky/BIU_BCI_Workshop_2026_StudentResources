@@ -1,35 +1,50 @@
 import React from 'react';
 import MDXComponents from '@theme-original/MDXComponents';
 import HubDownloadCard from '@site/src/components/HubDownloadCard';
-import ResistorInterpreter from '@site/src/components/ResistorInterpreter';
+import ResistorInterpreter, {
+  ResistorLegendTable,
+  ResistorWorkedExample,
+} from '@site/src/components/ResistorInterpreter';
 
-const HUB_DOWNLOAD_MARKER = '#hub-download-card';
+const MARKER_COMPONENTS: Array<{ marker: string; Component: React.ComponentType }> = [
+  { marker: '#hub-download-card', Component: HubDownloadCard },
+  { marker: '#resistor-legend', Component: ResistorLegendTable },
+  { marker: '#resistor-example', Component: ResistorWorkedExample },
+  { marker: '#resistor-interpreter', Component: ResistorInterpreter },
+];
 
-function hasHubDownloadMarker(node: React.ReactNode): boolean {
+function findMarkerComponent(node: React.ReactNode): React.ComponentType | null {
   for (const child of React.Children.toArray(node)) {
     if (!React.isValidElement<{ href?: unknown; children?: React.ReactNode }>(child)) {
       continue;
     }
-    if (
-      typeof child.props.href === 'string' &&
-      child.props.href.includes(HUB_DOWNLOAD_MARKER)
-    ) {
-      return true;
+    if (typeof child.props.href === 'string') {
+      for (const entry of MARKER_COMPONENTS) {
+        if (child.props.href.includes(entry.marker)) {
+          return entry.Component;
+        }
+      }
     }
-    if (child.props.children && hasHubDownloadMarker(child.props.children)) {
-      return true;
+    if (child.props.children) {
+      const nested = findMarkerComponent(child.props.children);
+      if (nested) {
+        return nested;
+      }
     }
   }
-  return false;
+  return null;
 }
 
 export default {
   ...MDXComponents,
   HubDownloadCard,
   ResistorInterpreter,
+  ResistorLegendTable,
+  ResistorWorkedExample,
   p: (props: React.ComponentPropsWithoutRef<'p'>): React.ReactElement => {
-    if (hasHubDownloadMarker(props.children)) {
-      return <HubDownloadCard />;
+    const MarkerComponent = findMarkerComponent(props.children);
+    if (MarkerComponent) {
+      return <MarkerComponent />;
     }
     const OriginalP = MDXComponents.p;
     if (OriginalP) {
