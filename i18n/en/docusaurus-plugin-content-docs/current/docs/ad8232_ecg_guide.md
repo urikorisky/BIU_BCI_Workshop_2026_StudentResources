@@ -36,13 +36,17 @@ Because raw ECG at the skin is only **`~1 mV`** (less than a single step of Ardu
 
 ## 2. Electrode Placement (3 Leads)
 
-Plug the 3-lead cable into the 3.5 mm jack and attach the snap electrodes:
+Plug the 3-lead cable into the 3.5 mm jack and attach the snap electrodes according to our kit color legend:
 
-1. **`RA` (Right Arm):** Below the right collarbone (or right wrist).
-2. **`LA` (Left Arm):** Below the left collarbone (or left wrist).
-3. **`RL` (Right Leg / Reference):** Lower right ribcage / abdomen.
+- 🔴 **Red (`LA`):** **Left Chest** — below the left collarbone (above the bra line).
+- 🟡 **Yellow (`RA`):** **Right Chest** — below the right collarbone (above the bra line).
+- 🟢 **Green (`RL` / Reference):** **Right Abdomen** — lower right ribcage / abdomen (below the bra band and above the waistband).
 
-*(Note: lead wire colors vary across kits—place electrodes on steady, relaxed areas to minimize EMG muscle noise.)*
+![AD8232 ECG Electrode Placement (Male and Female, Front View)](/img/ad8232_electrode_placement.png)
+
+> **Orientation Note (`R` / `L` — Mirror Image):**  
+> The illustration shows a person **facing you**. The subject's **Right side (`R` — Yellow & Green)** appears on the **left** side of the image, and the subject's **Left side (`L` — Red)** appears on the **right** side of the image.  
+> When wearing a bra: place the upper pads cleanly above the bra and the green reference pad cleanly below the bra band (above pants waistband), on relaxed skin clear of straps or underwire to minimize EMG/motion noise.
 
 ---
 
