@@ -284,14 +284,12 @@ class ArduinoCanvas(QuantizationCanvas):
 
         if len(t_vis) >= 2:
             if self.show_quantization:
-                # Light red error fill
+                # Light red sample-level error fill (only shades actual differences between v_orig and v_quant)
                 poly = QPolygonF()
                 for ti, vi in zip(t_vis, v_vis):
                     poly.append(self._data_to_px(float(ti), float(vi), rect))
-                poly.append(self._data_to_px(float(t_vis[-1]), float(q_vis[-1]), rect))
-                for idx in range(len(t_vis) - 1, 0, -1):
-                    poly.append(self._data_to_px(float(t_vis[idx]), float(q_vis[idx - 1]), rect))
-                    poly.append(self._data_to_px(float(t_vis[idx - 1]), float(q_vis[idx - 1]), rect))
+                for ti, qi in zip(reversed(t_vis), reversed(q_vis)):
+                    poly.append(self._data_to_px(float(ti), float(qi), rect))
                 painter.setPen(Qt.PenStyle.NoPen)
                 painter.setBrush(QColor(235, 65, 65, 60))
                 painter.drawPolygon(poly)
@@ -468,13 +466,9 @@ class ArduinoCanvas(QuantizationCanvas):
                 for ti, vi in zip(t_vis, v_vis):
                     p = self._data_to_px(float(ti), float(vi), rect)
                     err_pts.append(f"{p.x():.2f},{p.y():.2f}")
-                p_last = self._data_to_px(float(t_vis[-1]), float(q_vis[-1]), rect)
-                err_pts.append(f"{p_last.x():.2f},{p_last.y():.2f}")
-                for idx in range(len(t_vis) - 1, 0, -1):
-                    p_h = self._data_to_px(float(t_vis[idx]), float(q_vis[idx - 1]), rect)
-                    p_v = self._data_to_px(float(t_vis[idx - 1]), float(q_vis[idx - 1]), rect)
-                    err_pts.append(f"{p_h.x():.2f},{p_h.y():.2f}")
-                    err_pts.append(f"{p_v.x():.2f},{p_v.y():.2f}")
+                for ti, qi in zip(reversed(t_vis), reversed(q_vis)):
+                    p = self._data_to_px(float(ti), float(qi), rect)
+                    err_pts.append(f"{p.x():.2f},{p.y():.2f}")
                 lines.append(
                     f'    <polygon points="{" ".join(err_pts)}" fill="#EB4141" fill-opacity="0.24" stroke="none"/>'
                 )

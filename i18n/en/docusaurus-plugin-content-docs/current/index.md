@@ -11,7 +11,7 @@ Welcome to the student knowledge base and code repository for the **BCI Workshop
 This site contains all student-facing materials: lecture guides, circuit diagrams, starter code, and hands-on exercises covering the entire arc from basic electricity and microcontrollers to biopotentials, signal filtering, and brain-computer interfacing.
 
 :::tip Getting Started (Required before Sunday 09:00)
-Go to **[Getting Started](docs/getting_started.md)** to download **BCI Workshop Hub** (Windows & macOS), review first-launch security prompts, and run your pre-workshop system check.
+Go to **[Getting Started](getting_started.md)** to download **BCI Workshop Hub** (Windows & macOS), review first-launch security prompts, and run your pre-workshop system check.
 :::
 
 ---

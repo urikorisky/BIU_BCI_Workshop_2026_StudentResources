@@ -1,0 +1,82 @@
+---
+sidebar_position: 5
+sidebar_label: "AD8232 ECG Sensor Guide"
+---
+
+# Rudimentary Guide: Measuring ECG with the AD8232
+
+The **AD8232** is a single-lead **ECG (Electrocardiogram)** analog front-end module designed to extract tiny cardiac biopotentials from the skin.
+
+Because raw ECG at the skin is only **`~1 mV`** (less than a single step of Arduino's 10-bit ADC!), the AD8232 performs three steps before sending the signal to the Arduino:
+1. **Differential amplification:** Subtracts two active electrodes to boost the heartbeat while rejecting common-mode `50 Hz` room hum.
+2. **Analog bandpass filtering (`~0.5–40 Hz`):** Removes slow DC drift and high-frequency muscle/RF noise.
+3. **Mid-supply DC bias:** Centers `OUTPUT` around `~1.65 V` (`3.3 V / 2`), so both positive and negative ECG waves fit inside Arduino's `0–5 V` analog input range.
+
+---
+
+## ⚠️ Mandatory Safety Rules (Read Before Connecting!)
+
+- **Battery power only:** Whenever electrodes are attached to a person, **unplug the laptop from its mains charger** (run on battery only).
+- **`3.3V` power only:** The AD8232 is a **`3.3V`** chip—connecting `VIN` to `5V` can damage the board.
+
+---
+
+## 1. Wiring to Arduino UNO
+
+| AD8232 Pin | Arduino UNO Pin | Purpose |
+| :--- | :--- | :--- |
+| **`3.3V`** | `3.3V` | Power supply (do **not** use `5V`!) |
+| **`GND`** | `GND` | Common ground |
+| **`OUTPUT`** | `A0` | Amplified, filtered analog ECG signal |
+| **`LO-`** | `Pin 11` *(optional)* | Leads-off detection |
+| **`LO+`** | `Pin 10` *(optional)* | Leads-off detection |
+| **`SDN`** | Leave unconnected | Shutdown pin (keep floating) |
+
+---
+
+## 2. Electrode Placement (3 Leads)
+
+Plug the 3-lead cable into the 3.5 mm jack and attach the snap electrodes:
+
+1. **`RA` (Right Arm):** Below the right collarbone (or right wrist).
+2. **`LA` (Left Arm):** Below the left collarbone (or left wrist).
+3. **`RL` (Right Leg / Reference):** Lower right ribcage / abdomen.
+
+*(Note: lead wire colors vary across kits—place electrodes on steady, relaxed areas to minimize EMG muscle noise.)*
+
+---
+
+## 3. Minimal Arduino Sketch
+
+This sketch samples at `~250 Hz` (`115200` baud) and works directly with both Arduino **Serial Plotter** and **`serial_to_lsl.exe`**:
+
+```cpp
+const int PIN_ECG = A0;
+const int PIN_LO_PLUS = 10;
+const int PIN_LO_MINUS = 11;
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(PIN_LO_PLUS, INPUT);
+  pinMode(PIN_LO_MINUS, INPUT);
+}
+
+void loop() {
+  if (digitalRead(PIN_LO_PLUS) == 1 || digitalRead(PIN_LO_MINUS) == 1) {
+    // Leads off: output flat mid-scale placeholder
+    Serial.println(512);
+  } else {
+    int ecg = analogRead(PIN_ECG);
+    Serial.println(ecg);
+  }
+  delay(4); // ~250 Hz
+}
+```
+
+---
+
+## 4. Quick Check & Troubleshooting
+
+1. Open **Tools → Serial Plotter** and set the baud rate to **`115200`**.
+2. Sit still with relaxed arms—you should see sharp **QRS** spikes centered around `~330–350` ADC counts (`~1.65 V`).
+3. **Thick `50 Hz` hum:** Make sure the laptop is unplugged from mains power and all three electrode pads have firm skin contact.
