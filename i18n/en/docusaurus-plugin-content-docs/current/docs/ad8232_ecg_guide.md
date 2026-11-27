@@ -48,6 +48,11 @@ Plug the 3-lead cable into the 3.5 mm jack and attach the snap electrodes accord
 > The illustration shows a person **facing you**. The subject's **Right side (`R` — Yellow & Green)** appears on the **left** side of the image, and the subject's **Left side (`L` — Red)** appears on the **right** side of the image.  
 > When wearing a bra: place the upper pads cleanly above the bra and the green reference pad cleanly below the bra band (above pants waistband), on relaxed skin clear of straps or underwire to minimize EMG/motion noise.
 
+### How This 3-Lead Setup Measures the Heart's Electrical Currents
+With each heartbeat, a wave of electrical depolarization sweeps across the heart muscle (from the atria down through the ventricles), creating a changing **electric dipole** inside the chest. That dipole drives weak ionic currents through conductive body tissues, producing tiny voltage differences (`~1 mV`) across the skin:
+- **Differential Measurement Pair (`RA` Yellow & `LA` Red):** The AD8232 measures the **voltage difference (`LA − RA`)** across the chest (approximating **Lead I**), capturing the P–QRS–T waveform as the cardiac dipole sweeps across the torso. Because both electrodes pick up nearly identical ambient interference (such as `50 Hz` mains hum), subtracting them cancels common-mode noise while preserving the heart's signal.
+- **Reference / Driven Electrode (`RL` Green on Right Abdomen):** Acts as the electrical reference (**Right Leg Drive / RLD**), anchoring the body's baseline potential to the amplifier's `~1.65 V` midpoint and actively suppressing common-mode interference.
+
 ---
 
 ## 3. Minimal Arduino Sketch
