@@ -1,6 +1,7 @@
 import React from 'react';
 import MDXComponents from '@theme-original/MDXComponents';
 import HubDownloadCard from '@site/src/components/HubDownloadCard';
+import ResistorInterpreter from '@site/src/components/ResistorInterpreter';
 
 const HUB_DOWNLOAD_MARKER = '#hub-download-card';
 
@@ -25,6 +26,7 @@ function hasHubDownloadMarker(node: React.ReactNode): boolean {
 export default {
   ...MDXComponents,
   HubDownloadCard,
+  ResistorInterpreter,
   p: (props: React.ComponentPropsWithoutRef<'p'>): React.ReactElement => {
     if (hasHubDownloadMarker(props.children)) {
       return <HubDownloadCard />;

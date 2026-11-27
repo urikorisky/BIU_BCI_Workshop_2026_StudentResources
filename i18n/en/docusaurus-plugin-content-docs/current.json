@@ -6,5 +6,9 @@
   "sidebar.workshopSidebar.category.קריאה נוספת": {
     "message": "Further Reading",
     "description": "The label for category 'קריאה נוספת' in sidebar 'workshopSidebar'"
+  },
+  "sidebar.workshopSidebar.category.דף נוסחאות ועזר (Cheatsheet)": {
+    "message": "Cheatsheet",
+    "description": "The label for category 'דף נוסחאות ועזר (Cheatsheet)' in sidebar 'workshopSidebar'"
   }
 }
