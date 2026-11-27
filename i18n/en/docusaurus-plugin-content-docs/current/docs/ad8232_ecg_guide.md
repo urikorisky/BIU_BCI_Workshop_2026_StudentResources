@@ -38,19 +38,19 @@ Because raw ECG at the skin is only **`~1 mV`** (less than a single step of Ardu
 
 Plug the 3-lead cable into the 3.5 mm jack and attach the snap electrodes according to our kit color legend:
 
-- 🔴 **Red (`LA`):** **Left Chest** — below the left collarbone (above the bra line).
-- 🟡 **Yellow (`RA`):** **Right Chest** — below the right collarbone (above the bra line).
+- 🔴 **Red (`RA`):** **Right Chest** — below the right collarbone (above the bra line).
+- 🟡 **Yellow (`LA`):** **Left Chest** — below the left collarbone (above the bra line).
 - 🟢 **Green (`RL` / Reference):** **Right Abdomen** — lower right ribcage / abdomen (below the bra band and above the waistband).
 
 ![AD8232 ECG Electrode Placement (Male and Female, Front View)](/img/ad8232_electrode_placement.png)
 
 > **Orientation Note (`R` / `L` — Mirror Image):**  
-> The illustration shows a person **facing you**. The subject's **Right side (`R` — Yellow & Green)** appears on the **left** side of the image, and the subject's **Left side (`L` — Red)** appears on the **right** side of the image.  
+> The illustration shows a person **facing you**. The subject's **Right side (`R` — Red & Green)** appears on the **left** side of the image, and the subject's **Left side (`L` — Yellow)** appears on the **right** side of the image.  
 > When wearing a bra: place the upper pads cleanly above the bra and the green reference pad cleanly below the bra band (above pants waistband), on relaxed skin clear of straps or underwire to minimize EMG/motion noise.
 
 ### How This 3-Lead Setup Measures the Heart's Electrical Currents
 With each heartbeat, a wave of electrical depolarization sweeps across the heart muscle (from the atria down through the ventricles), creating a changing **electric dipole** inside the chest. That dipole drives weak ionic currents through conductive body tissues, producing tiny voltage differences (`~1 mV`) across the skin:
-- **Differential Measurement Pair (`RA` Yellow & `LA` Red):** The AD8232 measures the **voltage difference (`LA − RA`)** across the chest (approximating **Lead I**), capturing the P–QRS–T waveform as the cardiac dipole sweeps across the torso. Because both electrodes pick up nearly identical ambient interference (such as `50 Hz` mains hum), subtracting them cancels common-mode noise while preserving the heart's signal.
+- **Differential Measurement Pair (`RA` Red & `LA` Yellow):** The AD8232 measures the **voltage difference (`LA − RA`)** across the chest (approximating **Lead I**), capturing the P–QRS–T waveform as the cardiac dipole sweeps across the torso. Because both electrodes pick up nearly identical ambient interference (such as `50 Hz` mains hum), subtracting them cancels common-mode noise while preserving the heart's signal.
 - **Reference / Driven Electrode (`RL` Green on Right Abdomen):** Acts as the electrical reference (**Right Leg Drive / RLD**), anchoring the body's baseline potential to the amplifier's `~1.65 V` midpoint and actively suppressing common-mode interference.
 
 ---
