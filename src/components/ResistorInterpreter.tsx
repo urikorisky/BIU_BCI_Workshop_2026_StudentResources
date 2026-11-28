@@ -411,7 +411,7 @@ export default function ResistorInterpreter(): React.ReactElement {
       </div>
 
       {/* 5 Dropdown Band Selectors (always LTR to match physical left-to-right bands) */}
-      <div className="resistor-bands-grid" dir="ltr">
+      <div className="resistor-bands-grid" dir="ltr" style={{ direction: 'ltr', textAlign: 'left' }}>
         {[
           { idx: 0, title: isHe ? 'פס 1 (מאות)' : 'Band 1 (100s)', opts: BAND1_OPTIONS },
           { idx: 1, title: isHe ? 'פס 2 (עשרות)' : 'Band 2 (10s)', opts: DIGIT_OPTIONS },
@@ -497,32 +497,96 @@ export default function ResistorInterpreter(): React.ReactElement {
 export function ResistorLegendTable(): React.ReactElement {
   const { i18n } = useDocusaurusContext();
   const isHe = i18n.currentLocale === 'he';
+  const cellStyle: React.CSSProperties = { direction: 'ltr', textAlign: 'center' };
+  const firstColStyle: React.CSSProperties = { direction: 'ltr', textAlign: 'left' };
+  const codeStyle: React.CSSProperties = {
+    direction: 'ltr',
+    unicodeBidi: 'isolate',
+    display: 'inline-block',
+  };
 
   return (
-    <div className="resistor-legend-wrap" dir="ltr">
-      <table className="resistor-legend-table">
+    <div
+      className="resistor-legend-wrap"
+      dir="ltr"
+      style={{ direction: 'ltr', textAlign: 'left' }}
+    >
+      <table
+        className="resistor-legend-table"
+        dir="ltr"
+        style={{ direction: 'ltr' }}
+      >
         <thead>
           <tr>
-            <th>{isHe ? 'Color (צבע)' : 'Color'}</th>
-            <th>{isHe ? 'Band 1 (100s)' : 'Band 1 (100s)'}</th>
-            <th>{isHe ? 'Band 2 (10s)' : 'Band 2 (10s)'}</th>
-            <th>{isHe ? 'Band 3 (1s)' : 'Band 3 (1s)'}</th>
-            <th>{isHe ? 'Band 4 (×M)' : 'Band 4 (Multiplier)'}</th>
-            <th>{isHe ? 'Band 5 (±%)' : 'Band 5 (Tolerance)'}</th>
+            <th dir="ltr" style={firstColStyle}>
+              {isHe ? (
+                <>
+                  Color (<bdi>צבע</bdi>)
+                </>
+              ) : (
+                'Color'
+              )}
+            </th>
+            <th dir="ltr" style={cellStyle}>
+              {isHe ? 'Band 1 (100s)' : 'Band 1 (100s)'}
+            </th>
+            <th dir="ltr" style={cellStyle}>
+              {isHe ? 'Band 2 (10s)' : 'Band 2 (10s)'}
+            </th>
+            <th dir="ltr" style={cellStyle}>
+              {isHe ? 'Band 3 (1s)' : 'Band 3 (1s)'}
+            </th>
+            <th dir="ltr" style={cellStyle}>
+              {isHe ? 'Band 4 (×M)' : 'Band 4 (Multiplier)'}
+            </th>
+            <th dir="ltr" style={cellStyle}>
+              {isHe ? 'Band 5 (±%)' : 'Band 5 (Tolerance)'}
+            </th>
           </tr>
         </thead>
         <tbody>
           {RESISTOR_COLORS.map((c) => (
             <tr key={c.id}>
-              <td className="resistor-legend-color-cell">
-                <span className="resistor-swatch" style={{ backgroundColor: c.hex }} />
-                <strong>{isHe ? `${c.en} (${c.he})` : c.en}</strong>
+              <td className="resistor-legend-color-cell" dir="ltr" style={firstColStyle}>
+                <span
+                  dir="ltr"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    direction: 'ltr',
+                  }}
+                >
+                  <span
+                    className="resistor-swatch"
+                    style={{ backgroundColor: c.hex, margin: 0 }}
+                  />
+                  <strong>
+                    {isHe ? (
+                      <>
+                        {c.en} (<bdi>{c.he}</bdi>)
+                      </>
+                    ) : (
+                      c.en
+                    )}
+                  </strong>
+                </span>
               </td>
-              <td>{c.digit !== null && c.digit >= 1 ? <code>{c.digit}</code> : '—'}</td>
-              <td>{c.digit !== null ? <code>{c.digit}</code> : '—'}</td>
-              <td>{c.digit !== null ? <code>{c.digit}</code> : '—'}</td>
-              <td>{c.multiplier !== null ? <code>{c.multLabel}</code> : '—'}</td>
-              <td>{c.tolerance !== null ? <code>{c.tolLabel}</code> : '—'}</td>
+              <td dir="ltr" style={cellStyle}>
+                {c.digit !== null && c.digit >= 1 ? <code dir="ltr" style={codeStyle}>{c.digit}</code> : '—'}
+              </td>
+              <td dir="ltr" style={cellStyle}>
+                {c.digit !== null ? <code dir="ltr" style={codeStyle}>{c.digit}</code> : '—'}
+              </td>
+              <td dir="ltr" style={cellStyle}>
+                {c.digit !== null ? <code dir="ltr" style={codeStyle}>{c.digit}</code> : '—'}
+              </td>
+              <td dir="ltr" style={cellStyle}>
+                {c.multiplier !== null ? <code dir="ltr" style={codeStyle}>{c.multLabel}</code> : '—'}
+              </td>
+              <td dir="ltr" style={cellStyle}>
+                {c.tolerance !== null ? <code dir="ltr" style={codeStyle}>{c.tolLabel}</code> : '—'}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -535,16 +599,25 @@ export function ResistorWorkedExample(): React.ReactElement {
   const { i18n } = useDocusaurusContext();
   const isHe = i18n.currentLocale === 'he';
   const ex = ['brown', 'black', 'black', 'yellow', 'brown'].map((id) => BY_ID[id]);
+  const codeStyle: React.CSSProperties = {
+    direction: 'ltr',
+    unicodeBidi: 'isolate',
+    display: 'inline-block',
+  };
 
   return (
-    <div className="resistor-example-card" dir="ltr">
+    <div
+      className="resistor-example-card"
+      dir="ltr"
+      style={{ direction: 'ltr', textAlign: 'left' }}
+    >
       <div className="resistor-example-title">
         {isHe
           ? 'Worked Example (Left → Right): Brown – Black – Black – Yellow – Brown'
           : 'Brown – Black – Black – Yellow – Brown'}
       </div>
 
-      <div className="resistor-svg-wrap" style={{ maxWidth: 360 }}>
+      <div className="resistor-svg-wrap" dir="ltr" style={{ maxWidth: 360 }}>
         <svg viewBox="0 0 460 110" width="100%" height="100%" role="img" aria-label="1 MOhm 5-band resistor example">
           <line x1="15" y1="55" x2="95" y2="55" stroke="#94a3b8" strokeWidth="6" strokeLinecap="round" />
           <line x1="365" y1="55" x2="445" y2="55" stroke="#94a3b8" strokeWidth="6" strokeLinecap="round" />
@@ -563,43 +636,65 @@ export function ResistorWorkedExample(): React.ReactElement {
         </svg>
       </div>
 
-      <ol className="resistor-example-steps">
+      <ol
+        className="resistor-example-steps"
+        dir="ltr"
+        style={{ direction: 'ltr', textAlign: 'left' }}
+      >
         <li>
           <span className="resistor-swatch" style={{ backgroundColor: ex[0].hex }} />
-          <strong>Band 1 (Brown{isHe ? ' / חום' : ''}):</strong> hundreds digit = <code>1</code>
+          <strong>
+            Band 1 (Brown{isHe ? <> / <bdi>חום</bdi></> : ''}):
+          </strong>{' '}
+          hundreds digit = <code dir="ltr" style={codeStyle}>1</code>
         </li>
         <li>
           <span className="resistor-swatch" style={{ backgroundColor: ex[1].hex }} />
-          <strong>Band 2 (Black{isHe ? ' / שחור' : ''}):</strong> tens digit = <code>0</code>
+          <strong>
+            Band 2 (Black{isHe ? <> / <bdi>שחור</bdi></> : ''}):
+          </strong>{' '}
+          tens digit = <code dir="ltr" style={codeStyle}>0</code>
         </li>
         <li>
           <span className="resistor-swatch" style={{ backgroundColor: ex[2].hex }} />
-          <strong>Band 3 (Black{isHe ? ' / שחור' : ''}):</strong> ones digit = <code>0</code> → base digits = <code>100</code>
+          <strong>
+            Band 3 (Black{isHe ? <> / <bdi>שחור</bdi></> : ''}):
+          </strong>{' '}
+          ones digit = <code dir="ltr" style={codeStyle}>0</code> → base digits ={' '}
+          <code dir="ltr" style={codeStyle}>100</code>
         </li>
         <li>
           <span className="resistor-swatch" style={{ backgroundColor: ex[3].hex }} />
-          <strong>Band 4 (Yellow{isHe ? ' / צהוב' : ''}):</strong> multiplier = <code>×10,000 Ω</code> (<code>×10 kΩ</code>)
+          <strong>
+            Band 4 (Yellow{isHe ? <> / <bdi>צהוב</bdi></> : ''}):
+          </strong>{' '}
+          multiplier = <code dir="ltr" style={codeStyle}>×10,000 Ω</code> (
+          <code dir="ltr" style={codeStyle}>×10 kΩ</code>)
         </li>
         <li>
           <span className="resistor-swatch" style={{ backgroundColor: ex[4].hex }} />
-          <strong>Band 5 (Brown{isHe ? ' / חום' : ''}):</strong> tolerance = <code>±1%</code>
+          <strong>
+            Band 5 (Brown{isHe ? <> / <bdi>חום</bdi></> : ''}):
+          </strong>{' '}
+          tolerance = <code dir="ltr" style={codeStyle}>±1%</code>
         </li>
       </ol>
 
-      <pre className="resistor-example-formula">
-        <code>R = 100 × 10,000 Ω = 1,000,000 Ω = 1 MΩ ±1%</code>
+      <pre className="resistor-example-formula" dir="ltr" style={{ direction: 'ltr', textAlign: 'left' }}>
+        <code dir="ltr" style={codeStyle}>R = 100 × 10,000 Ω = 1,000,000 Ω = 1 MΩ ±1%</code>
       </pre>
 
-      <p className="resistor-example-note">
+      <p className="resistor-example-note" dir="ltr" style={{ direction: 'ltr', textAlign: 'left' }}>
         {isHe ? (
           <>
-            Day 1 LED resistor check: <strong>Red – Red – Black – Black – Brown</strong> (אדום – אדום – שחור – שחור – חום) →{' '}
-            <code>220 × 1 Ω = 220 Ω ±1%</code>
+            Day 1 LED resistor check: <strong>Red – Red – Black – Black – Brown</strong> (
+            <bdi>אדום – אדום – שחור – שחור – חום</bdi>) →{' '}
+            <code dir="ltr" style={codeStyle}>220 × 1 Ω = 220 Ω ±1%</code>
           </>
         ) : (
           <>
             Quick check on your Day 1 LED resistor: <strong>Red – Red – Black – Black – Brown</strong> →{' '}
-            <code>220 × 1 Ω = 220 Ω ±1%</code>
+            <code dir="ltr" style={codeStyle}>220 × 1 Ω = 220 Ω ±1%</code>
           </>
         )}
       </p>

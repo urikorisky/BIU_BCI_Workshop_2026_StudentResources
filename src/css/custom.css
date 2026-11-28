@@ -221,12 +221,16 @@
   margin: 0.4rem auto 1rem;
 }
 
+/*rtl:begin:ignore*/
 .resistor-bands-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   gap: 0.65rem;
   margin-bottom: 1rem;
+  direction: ltr;
+  text-align: left;
 }
+/*rtl:end:ignore*/
 
 .resistor-band-field {
   display: flex;
@@ -311,6 +315,7 @@
   color: var(--ifm-color-emphasis-800);
 }
 
+/*rtl:begin:ignore*/
 .resistor-legend-wrap {
   margin: 1rem 0 1.5rem;
   overflow-x: auto;
@@ -322,17 +327,25 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
+  direction: ltr;
 }
 
 .resistor-legend-table th,
 .resistor-legend-table td {
+  direction: ltr;
   text-align: center;
   white-space: nowrap;
 }
 
 .resistor-legend-table th:first-child,
 .resistor-legend-table td.resistor-legend-color-cell {
+  direction: ltr;
   text-align: left;
+}
+
+.resistor-legend-table code {
+  direction: ltr;
+  unicode-bidi: isolate;
 }
 
 .resistor-example-card {
@@ -354,7 +367,10 @@
 .resistor-example-steps {
   margin: 0.5rem 0 0.85rem;
   padding-left: 1.35rem;
+  direction: ltr;
+  text-align: left;
 }
+/*rtl:end:ignore*/
 
 .resistor-example-steps li {
   margin-bottom: 0.3rem;
